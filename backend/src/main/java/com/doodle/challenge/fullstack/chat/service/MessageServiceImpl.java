@@ -30,7 +30,7 @@ public class MessageServiceImpl implements MessageService {
 
   @Override
   public Message createMessage(Map<String, String> request) {
-    Message message = new Message(request.get("user_name"), request.get("content"));
+    Message message = new Message(request.get("userName"), request.get("content"));
     return this.messageRepository.save(message);
   }
 }

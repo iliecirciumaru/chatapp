@@ -1,0 +1,27 @@
+<div class="chat">
+  <h3 class="section-title">Messages</h3>
+
+  <div class="alert alert-danger" role="alert" *ngIf="error != null">
+      Error during loading of data: {{error.message}}
+  </div>
+
+  <div *ngIf="loaded == false"> ...loading</div>
+
+  <div class="tb-all-objects-table" *ngIf="loaded == true && messages.length > 0">
+      <table class="table table-bordered">
+          <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Content</th>
+              <th>Created</th>
+          </tr>
+          <tr *ngFor="let message of messages">
+              <td>{{message.id}}</td>
+              <td>{{message.userName}}</td>
+              <td>{{message.content}}</td>
+              <!-- <td>{{message.createdAt | timestamp}}</td> -->
+              <td>{{message.createdAt}}</td>
+          </tr>
+      </table>
+  </div>
+</div>
