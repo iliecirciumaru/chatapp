@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { MessageService } from './service/message.service';
 import { ChatComponent } from './view/chat/chat.component';
 import { HttpClientModule } from '@angular/common/http';
+import { TimestampPipe } from './pipe/timestamp.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     ChatComponent,
+    TimestampPipe,
   ],
   imports: [
     BrowserModule,
