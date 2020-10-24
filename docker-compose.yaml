@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+  backend:
+    image: chat-backend:latest
+    ports:
+      - 8080:8080
+  frontend:
+    image: chat-frontend:latest
+    ports:
+      - 80:80
