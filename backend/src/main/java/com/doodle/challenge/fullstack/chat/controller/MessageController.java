@@ -4,6 +4,8 @@ import com.doodle.challenge.fullstack.chat.model.Message;
 import com.doodle.challenge.fullstack.chat.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,8 +27,9 @@ public class MessageController {
   }
 
   @PostMapping(path = "/messages")
+  @MessageMapping("/post-message")
+  @SendTo("/topic/chat-messages")
   public Message createMessage(@RequestBody Map<String, String> request) {
     return this.messageService.createMessage(request);
   }
-
 }
