@@ -53,20 +53,20 @@ table {
 body {
   background: #C5DDEB;
   font: 14px/20px "Lato", Arial, sans-serif;
-  padding: 40px 0;
+  /* padding: 40px 0; */
   color: white;
 }
 
 .container {
   margin: 0 auto;
-  width: 750px;
-  background: #444753;
+  /* width: 750px; */
+  /* background: #444753; */
   border-radius: 5px;
 }
 
 .chat {
   width: 490px;
-  float: left;
+  /* float: left; */
   background: #F2F5F8;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -101,7 +101,7 @@ body {
   padding: 30px 30px 20px;
   border-bottom: 2px solid white;
   overflow-y: scroll;
-  height: 575px;
+  height: 450px;
 }
 .chat .chat-history .message-data {
   margin-bottom: 15px;
@@ -172,6 +172,22 @@ body {
 }
 .chat .chat-message button:hover {
   color: #75b1e8;
+}
+
+.chat .chat-name-container {
+  border-bottom: 2px solid white;
+  padding: 10px;
+}
+
+.chat .input-text {
+  /* width: 100%; */
+  border: none;
+  padding: 10px 20px;
+  font: 14px/22px "Lato", Arial, sans-serif;
+  /* margin-bottom: 10px; */
+  margin: 0 0 0 10px;
+  border-radius: 5px;
+  resize: none;
 }
 
 .online, .offline, .me {

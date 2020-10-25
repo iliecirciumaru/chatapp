@@ -14,6 +14,7 @@ export class ChatComponent implements OnInit {
   loaded = false;
 
   messageContent: string;
+  user: string;
 
   constructor (private messageService: MessageService) {
   }
@@ -34,10 +35,11 @@ export class ChatComponent implements OnInit {
   }
 
   sendMessage() {
-    const request: CreateMessageDto = new CreateMessageDto(this.messageContent, "Ilie");
+    const request: CreateMessageDto = new CreateMessageDto(this.messageContent, this.user);
     this.messageService.saveMessage(request)
       .then(message => {
         this.messages.push(message);
+        this.messageContent = '';
       }).catch(error => {
         this.error = new ErrorResponse(error.message || error.statusText || 'An error occurred, please try again', error.code);
         console.log(error);

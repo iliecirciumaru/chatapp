@@ -1,31 +1,13 @@
-<div class="chat">
-    <!-- <h3 class="section-title">Messages</h3>   -->
-
+<div class="chat-wrapper">
     <div class="alert alert-danger" role="alert" *ngIf="error != null">
         Error during loading of data: {{error.message}}
     </div>
-
     <div *ngIf="loaded == false"> ...loading</div>
-
-    <!-- <div class="tb-all-objects-table" *ngIf="loaded == true && messages.length > 0">
-      <table class="table table-bordered">
-          <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Content</th>
-              <th>Created</th>
-          </tr>
-          <tr *ngFor="let message of messages">
-              <td>{{message.id}}</td>
-              <td>{{message.userName}}</td>
-              <td>{{message.content}}</td>
-              <td>{{message.createdAt | timestamp}}</td>
-          </tr>
-      </table>
-  </div> -->
-
-    <div class="container clearfix">
+    <div>
         <div class="chat">
+            <div class="chat-name-container">
+                Your name: <input type="text" [(ngModel)]="user" name="user" class="input-text">
+            </div>
             <div class="chat-history">
                 <div class="chat-messages" *ngIf="loaded == true && messages.length > 0">
                     <ul>
@@ -38,19 +20,8 @@
                                 {{message.content}}
                             </div>
                         </li>
-
-                        <!-- <li>
-                            <div class="message-data">
-                                <span class="message-data-name"><i class="fa fa-circle online"></i> Vincent</span>
-                                <span class="message-data-time">10:12 AM, Today</span>
-                            </div>
-                            <div class="message my-message">
-                                Are we meeting today? Project has been already finished and I have results to show you.
-                            </div>
-                        </li> -->
                     </ul>
                 </div>
-
             </div> <!-- end chat-history -->
 
             <div class="chat-message clearfix">
