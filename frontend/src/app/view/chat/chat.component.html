@@ -8,7 +8,7 @@
             <div class="chat-name-container">
                 Your name: <input type="text" [(ngModel)]="user" name="user" class="input-text">
             </div>
-            <div class="chat-history">
+            <div class="chat-history" #chatHistory>
                 <div class="chat-messages" *ngIf="loaded == true && messages.length > 0">
                     <ul>
                         <li class="clearfix" *ngFor="let message of messages">
