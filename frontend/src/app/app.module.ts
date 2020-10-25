@@ -7,6 +7,7 @@ import { MessageService } from './service/message.service';
 import { ChatComponent } from './view/chat/chat.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TimestampPipe } from './pipe/timestamp.pipe';
+import { FormsModule } from '@angular/forms'; 
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { TimestampPipe } from './pipe/timestamp.pipe';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]
