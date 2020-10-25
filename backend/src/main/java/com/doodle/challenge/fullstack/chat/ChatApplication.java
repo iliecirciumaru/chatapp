@@ -22,25 +22,8 @@ public class ChatApplication {
 	@Bean
 	public CommandLineRunner demo(MessageRepository repository) {
 		return (args) -> {
-			// save a few customers
 			repository.save(new Message("Jack", "Hello world"));
 			repository.save(new Message("Ilie", "Hi, Jack"));
-
-			// fetch all customers
-			log.info("Customers found with findAll():");
-			log.info("-------------------------------");
-			for (Message customer : repository.findAll()) {
-				log.info(customer.toString());
-			}
-			log.info("");
-
-			// fetch an individual customer by ID
-			Optional<Message> byId = repository.findById(1L);
-			log.info("Customer found with findById(1L):");
-			log.info("--------------------------------");
-			log.info(byId.get().toString());
-			log.info("");
-
 		};
 	}
 

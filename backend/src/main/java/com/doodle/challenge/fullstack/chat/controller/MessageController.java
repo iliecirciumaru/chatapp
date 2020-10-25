@@ -1,5 +1,6 @@
 package com.doodle.challenge.fullstack.chat.controller;
 
+import com.doodle.challenge.fullstack.chat.model.CreateMessageRequestDTO;
 import com.doodle.challenge.fullstack.chat.model.Message;
 import com.doodle.challenge.fullstack.chat.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ public class MessageController {
   @PostMapping(path = "/messages")
   @MessageMapping("/post-message")
   @SendTo("/topic/chat-messages")
-  public Message createMessage(@RequestBody Map<String, String> request) {
+  public Message createMessage(@RequestBody CreateMessageRequestDTO request) {
     return this.messageService.createMessage(request);
   }
 }

@@ -1,5 +1,6 @@
 package com.doodle.challenge.fullstack.chat.service;
 
+import com.doodle.challenge.fullstack.chat.model.CreateMessageRequestDTO;
 import com.doodle.challenge.fullstack.chat.model.Message;
 import com.doodle.challenge.fullstack.chat.repository.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,8 +30,8 @@ public class MessageServiceImpl implements MessageService {
   }
 
   @Override
-  public Message createMessage(Map<String, String> request) {
-    Message message = new Message(request.get("userName"), request.get("content"));
+  public Message createMessage(CreateMessageRequestDTO request) {
+    Message message = new Message(request.getUserName(), request.getContent());
     return this.messageRepository.save(message);
   }
 }
