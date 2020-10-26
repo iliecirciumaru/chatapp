@@ -4,13 +4,14 @@ import com.doodle.challenge.fullstack.chat.model.CreateMessageRequestDTO;
 import com.doodle.challenge.fullstack.chat.model.Message;
 import com.doodle.challenge.fullstack.chat.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping(path = "${v1Api}")
@@ -31,6 +32,12 @@ public class MessageController {
   @MessageMapping("/post-message")
   @SendTo("/topic/chat-messages")
   public Message createMessage(@RequestBody CreateMessageRequestDTO request) {
+    if (request.getUserName() == null || request.getUserName().isEmpty()) {
+      throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Username is empty");
+    }
+    if (request.getContent() == null || request.getContent().isEmpty()) {
+      throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Username is empty");
+    }
     return this.messageService.createMessage(request);
   }
 }

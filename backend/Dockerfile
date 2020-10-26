@@ -4,9 +4,8 @@ RUN mkdir -p app
 WORKDIR /app
 
 COPY pom.xml .
-COPY run.sh .
 COPY src ./src
-#
+
 RUN mvn clean package
 
 RUN ls -l

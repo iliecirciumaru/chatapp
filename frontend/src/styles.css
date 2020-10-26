@@ -139,7 +139,7 @@ body {
 }
 .chat .chat-message button {
   float: right;
-  color: #94C2ED;
+  color: #86BB71;
   font-size: 16px;
   text-transform: uppercase;
   border: none;
@@ -148,7 +148,11 @@ body {
   background: #F2F5F8;
 }
 .chat .chat-message button:hover {
-  color: #75b1e8;
+  color: #2f9208;
+}
+
+.chat .chat-message button:disabled {
+  color: #94C2ED;
 }
 
 .chat .chat-name-container {
@@ -163,10 +167,6 @@ body {
   margin: 0 0 0 10px;
   border-radius: 5px;
   resize: none;
-}
-
-.align-left {
-  text-align: left;
 }
 
 .align-right {

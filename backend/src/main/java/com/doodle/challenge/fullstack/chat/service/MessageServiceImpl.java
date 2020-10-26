@@ -4,11 +4,10 @@ import com.doodle.challenge.fullstack.chat.model.CreateMessageRequestDTO;
 import com.doodle.challenge.fullstack.chat.model.Message;
 import com.doodle.challenge.fullstack.chat.repository.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class MessageServiceImpl implements MessageService {
@@ -21,12 +20,7 @@ public class MessageServiceImpl implements MessageService {
 
   @Override
   public List<Message> getMessages() {
-    List<Message> messages = new LinkedList<>();
-    this.messageRepository.findAll()
-                          .iterator()
-                          .forEachRemaining(messages::add);
-
-    return messages;
+    return this.messageRepository.findAll(Sort.by(Sort.Direction.ASC, "id"));
   }
 
   @Override

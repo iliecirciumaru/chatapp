@@ -29,7 +29,8 @@
                     rows="3" [(ngModel)]="messageContent"></textarea>
                 <i class="fa fa-file-o"></i> &nbsp;&nbsp;&nbsp;
                 <i class="fa fa-file-image-o"></i>
-                <button (click)="sendMessage()">Send</button>
+                <button (click)="sendMessage()" [disabled]="isFormDisabled()">Send</button>
+                
             </div> <!-- end chat-message -->
         </div> <!-- end chat -->
     </div> <!-- end container -->

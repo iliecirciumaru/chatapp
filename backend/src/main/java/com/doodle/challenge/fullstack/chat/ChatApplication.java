@@ -22,8 +22,8 @@ public class ChatApplication {
 	@Bean
 	public CommandLineRunner demo(MessageRepository repository) {
 		return (args) -> {
-			repository.save(new Message("Jack", "Hello world"));
-			repository.save(new Message("Ilie", "Hi, Jack"));
+			repository.save(new Message("Ilie", "Hello, Doodler!"));
+			repository.save(new Message("Doodle", "Hey, Ilie"));
 		};
 	}
 

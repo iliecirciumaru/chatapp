@@ -68,4 +68,11 @@ export class ChatComponent implements OnInit {
     this.stompClient.send("/app/post-message", {}, JSON.stringify(request));
     this.messageContent = '';
   }
+
+  isFormDisabled(): boolean {
+    var messageContent = this.messageContent != null ? this.messageContent.trim() : null;
+    var user = this.user != null ? this.user.trim() : null;
+
+    return !(messageContent && user);
+  }
 }
